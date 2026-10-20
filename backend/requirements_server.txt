@@ -1,0 +1,40 @@
+# Server/GPU environment used for LLM Scaling MIA precompute.
+# Install this file on the CUDA 11.6 server instead of the generic requirements.txt:
+#   pip install -r requirements_server.txt
+#
+# The extra PyTorch index is required for the +cu116 wheels.
+--extra-index-url https://download.pytorch.org/whl/cu116
+
+flask==3.0.0
+flask-cors==4.0.0
+
+# Versions already verified on the server for the original pipeline.
+accelerate==0.34.2
+cuda-python==11.6.0
+datasets==2.20.0
+matplotlib==3.6.2
+nltk==3.8.1
+numpy==1.22.4
+pandas==1.5.2
+pyarrow==15.0.2
+scikit-learn
+scipy==1.6.3
+
+# Install transformers from a local uploaded source tree.
+# Put the folder here before installing:
+#   backend/vendor/transformers-aec1ca3a588bc6c65f7886e3d3eaa74901a6356f
+# Then run pip from the backend directory:
+#   cd backend && pip install -r requirements_server.txt
+./vendor/transformers-aec1ca3a588bc6c65f7886e3d3eaa74901a6356f
+
+# PyTorch CUDA 11.6 stack.
+# torch==1.14.0
+torch==1.13.1+cu116
+torchvision==0.14.1+cu116
+torchaudio==0.13.1
+
+# Added for the whitebox enhanced attack scorer comparison.
+xgboost==1.7.6
+
+# Shared utility dependency used by precompute scripts.
+tqdm>=4.65.0

@@ -1,0 +1,16 @@
+# Generic local/dev backend dependencies.
+# For the CUDA 11.6 server, use requirements_server.txt instead because it pins
+# the known-good torch/transformers/datasets stack used by the original runs.
+flask==3.0.0
+flask-cors==4.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+torch>=2.0.0
+tqdm>=4.65.0
+transformers>=4.40.0
+datasets>=2.18.0
+accelerate>=0.29.0
+xgboost>=2.0.0
